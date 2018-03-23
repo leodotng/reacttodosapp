@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Button, Card, Icon } from "semantic-ui-react";
-import GitHubLogin from 'react-github-login';
 import logo from './logo.png';
 
 const onSuccess = response => console.log(response);
@@ -56,11 +55,7 @@ class App extends Component {
           <Button color="facebook">
             <Icon name="facebook" /> Facebook
           </Button>
-          <GitHubLogin clientId="f7e5b645c9d29ecef0c9
-"
-    onSuccess={onSuccess}
-    onFailure={onFailure}/>
-        
+          
       </div>
     );
   }
