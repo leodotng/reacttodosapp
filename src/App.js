@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Button, Card, Icon } from "semantic-ui-react";
-import SocialButton from './components/SocialButton';
+import GitHubLogin from 'react-github-login';
+import logo from './logo.png';
 
-
-const handleSocialLogin = (user) => {
-  console.log(user)
-}
- 
-const handleSocialLoginFailure = (err) => {
-  console.error(err)
-}
+const onSuccess = response => console.log(response);
+const onFailure = response => console.error(response);
 
 class App extends Component {
   render() {
@@ -26,6 +21,7 @@ class App extends Component {
         <br />
 
         <h1 className="App-title">Todos App</h1>
+        <img src={logo} /> 
         <h2>Welcome to the best Todos App!</h2>
         <Card color="green" centered="true">
           <p>Add New Todo</p>
@@ -34,35 +30,37 @@ class App extends Component {
         <Card color="green" centered="true">
           <p>Take out the Laundry</p>
           <Icon name="delete" size="large" />
+          <Icon name="edit" size="large" />
         </Card>
         <Card color="green" centered="true">
           <p>Take out the trash</p>
           <Icon name="delete" size="large" />
+          <Icon name="edit" size="large" />
         </Card>
         <Card color="green" centered="true">
           <p>Feed The Cats</p>
           <Icon name="delete" size="large" />
+          <Icon name="edit" size="large" />
         </Card>
         <Card color="green" centered="true">
           <p>Master Ruby on Rails rspec Testing</p>
           <Icon name="delete" size="large" />
+          <Icon name="edit" size="large" />
         </Card>
         <Card color="green" centered="true">
           <p>Learn Cypress Testing</p>
           <Icon name="delete" size="large" />
+          <Icon name="edit" size="large" />
         </Card>
-        <SocialButton
-      provider='facebook'
-      appId='534596613592353'
-      onLoginSuccess={handleSocialLogin}
-      onLoginFailure={handleSocialLoginFailure}
-    >
-     
-        <Button color="facebook">
-          <Icon name="facebook" /> Facebook
-        </Button>
-       
-    </SocialButton>
+        
+          <Button color="facebook">
+            <Icon name="facebook" /> Facebook
+          </Button>
+          <GitHubLogin clientId="f7e5b645c9d29ecef0c9
+"
+    onSuccess={onSuccess}
+    onFailure={onFailure}/>
+        
       </div>
     );
   }
