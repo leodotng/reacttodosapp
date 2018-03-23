@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Button, Card, Icon } from "semantic-ui-react";
+import SocialButton from './components/SocialButton';
+
+
+const handleSocialLogin = (user) => {
+  console.log(user)
+}
+ 
+const handleSocialLoginFailure = (err) => {
+  console.error(err)
+}
 
 class App extends Component {
   render() {
@@ -33,9 +43,26 @@ class App extends Component {
           <p>Feed The Cats</p>
           <Icon name="delete" size="large" />
         </Card>
+        <Card color="green" centered="true">
+          <p>Master Ruby on Rails rspec Testing</p>
+          <Icon name="delete" size="large" />
+        </Card>
+        <Card color="green" centered="true">
+          <p>Learn Cypress Testing</p>
+          <Icon name="delete" size="large" />
+        </Card>
+        <SocialButton
+      provider='facebook'
+      appId='534596613592353'
+      onLoginSuccess={handleSocialLogin}
+      onLoginFailure={handleSocialLoginFailure}
+    >
+     
         <Button color="facebook">
           <Icon name="facebook" /> Facebook
         </Button>
+       
+    </SocialButton>
       </div>
     );
   }
